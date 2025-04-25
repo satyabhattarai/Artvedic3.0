@@ -2,19 +2,20 @@
 
 import React, { useEffect, useState } from "react";
 
-import { getusers } from "../api/useractions";
+import { getProducts } from "../api/useractions";
 
-const page = () => {
-  const [data, set] = useState("");
-  const fetchUsers = async () => {
-    const query = "SELECT * FROM users";
-    const res = await getusers(query);
-    set(res);
-  };
+const Page = () => {
+  const [product, setProduct] = useState("");
   useEffect(() => {
-    fetchUsers();
+    const fetchProducts = async () => {
+      const res = await getProducts();
+      setProduct(res);
+    };
+    fetchProducts();
   }, []);
-  return <div>{data && console.log(data[0].name)}</div>;
+
+  console.log(product);
+  return <div></div>;
 };
 
-export default page;
+export default Page;
