@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
-const Card = () => {
+import { useRouter } from "next/navigation";
+const Card = ({ product }) => {
+  const router = useRouter();
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col  items-center gap-4">
@@ -13,57 +17,9 @@ const Card = () => {
               width={0}
               height={0}
               sizes="100vw"
+              onClick={() => router.push(`/Overview/${product.id}`)}
             />
-          </div>
-          <div className="border p-1">
-            <Image
-              src="/Images/Art24.jpeg"
-              className="w-full object-cover h-full"
-              alt="ArtImage"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
-          </div>
-          <div className="border p-1">
-            <Image
-              src="/Images/Art25.jpeg"
-              className="w-full object-cover h-full"
-              alt="ArtImage"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
-          </div>
-          <div className="border p-1">
-            <Image
-              src="/Images/Art8.jpeg"
-              className="w-full object-cover h-full"
-              alt="ArtImage"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
-          </div>
-          <div className="border p-1">
-            <Image
-              src="/Images/Art9.jpeg"
-              className="w-full object-cover h-full"
-              alt="ArtImage"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
-          </div>
-          <div className="border p-1">
-            <Image
-              src="/Images/Art7.jpeg"
-              className="w-full object-cover h-full"
-              alt="ArtImage"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
+            <h1>{product.name}</h1>
           </div>
         </div>
       </div>
@@ -73,66 +29,6 @@ const Card = () => {
           <div className="border p-1">
             <Image
               src="/Images/Art1.jpeg"
-              className="w-full object-cover h-full"
-              alt="ArtImage"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
-          </div>
-          <div className="border p-1">
-            <Image
-              src="/Images/Art11.jpeg"
-              className="w-full object-cover h-full"
-              alt="ArtImage"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
-          </div>
-          <div className="border p-1">
-            <Image
-              src="/Images/Art4.jpeg"
-              className="w-full object-cover h-full"
-              alt="ArtImage"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
-          </div>
-          <div className="border p-1">
-            <Image
-              src="/Images/Art5.jpeg"
-              className="w-full object-cover h-full"
-              alt="ArtImage"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
-          </div>
-          <div className="border p-1">
-            <Image
-              src="/Images/Art13.jpeg"
-              className="w-full object-cover h-full"
-              alt="ArtImage"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
-          </div>
-          <div className="border p-1">
-            <Image
-              src="/Images/Art23.jpeg"
-              className="w-full object-cover h-full"
-              alt="ArtImage"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
-          </div>
-          <div className="border p-1">
-            <Image
-              src="/Images/Art22.jpeg"
               className="w-full object-cover h-full"
               alt="ArtImage"
               width={0}
