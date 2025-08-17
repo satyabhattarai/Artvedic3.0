@@ -56,7 +56,7 @@ export async function login(prevState, formData) {
       return { message: "Incorrect password" };
     }
 
-    const token = await new SignJWT({})
+    const token = await new SignJWT({ username: user.username })
       .setProtectedHeader({ alg: "HS256" })
       .setSubject(user.id.toString())
       .setIssuedAt()
@@ -74,6 +74,7 @@ export async function login(prevState, formData) {
     console.log("Login successful, redirecting now...");
     return {
       success: true,
+      username: user.username,
     };
   } catch (err) {
     console.error("Login error:", err);

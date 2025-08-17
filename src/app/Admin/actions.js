@@ -12,6 +12,7 @@ const ProductStructure = z.object({
   dimensions: z.string().min(1).optional(),
   image_url: z.string().min(1).optional(),
   description: z.string().min(1).optional(),
+  commissioned: z.boolean().optional(),
 });
 
 export async function addProduct(formData) {
@@ -24,6 +25,7 @@ export async function addProduct(formData) {
     dimensions: formData.get("dimensions"),
     image_url: formData.get("image_url"),
     description: formData.get("description"),
+    commissioned: formData.get("commissioned") ? true : false,
   });
 
   if (!validatedFields.success) {
@@ -41,10 +43,11 @@ export async function addProduct(formData) {
   const dimensions = formData.get("dimensions");
   const image_url = formData.get("image_url");
   const description = formData.get("description");
+  const commissioned = formData.get("commissioned");
 
   try {
     const res = await pool.query(
-      "INSERT INTO products(name,price,discounted_price,stock_quantity,dimensions,description,image_url,category) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+      "INSERT INTO products(name,price,discounted_price,stock_quantity,dimensions,description,image_url,category,commissioned) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
       [
         name,
         price,
@@ -54,6 +57,7 @@ export async function addProduct(formData) {
         description,
         image_url,
         category,
+        commissioned,
       ]
     );
     return res.rows;

@@ -1,4 +1,4 @@
-import AddProductForm from "./AddProductForm";
+import AddProductForm from "./AddProductForm/page";
 import React from "react";
 
 export default async function page() {

@@ -4,7 +4,16 @@
 @theme {
   --font-brand: "Alegreya", serif;
   --font-headings: "Lora", serif;
-  --font-text: "Manrope", sans-serif;
+  --font-regular: "Manrope", sans-serif;
+
+  --weight-brand: 700;
+  --weight-headings: 600;
+  --weight-text: 400;
+
+  --size-brand: 48px;
+  --size-headings: 32px;
+  --size-text: 16px;
+
   --color-primary: #000000;
   --color-secondary: #292929;
   --color-tertiary: #eaeeff;
